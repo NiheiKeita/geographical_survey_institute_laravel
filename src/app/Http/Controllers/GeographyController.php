@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class GeographyController extends Controller
 {
-    public function elevation()
+    public function elevation(Request $request)
     {
-        $url = "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=135&lat=35&outtype=JSON";
+        $url = "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon={$request->lon}&lat={$request->lat}&outtype=JSON";
         $ch = curl_init();
         $apiKey = config('app.annict_api_key');
         $headers = [
@@ -25,11 +27,15 @@ class GeographyController extends Controller
         $responseArray = json_decode($response);
         curl_close($ch);
 
+        // 現在の位置情報と目標の標高が合っているか確認
+        $isClear = false;
+
         return response()->json([
             'result' => 'ok',
             'data' => [
                 'elevation' => $responseArray->elevation,
                 'hsrc' => $responseArray->hsrc,
+                'isClear' => $isClear,
             ]
         ]);
         // $this->info($response);
