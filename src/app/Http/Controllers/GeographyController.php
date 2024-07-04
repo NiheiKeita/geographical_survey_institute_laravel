@@ -10,9 +10,7 @@ class GeographyController extends Controller
     {
         $url = "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon={$request->lon}&lat={$request->lat}&outtype=JSON";
         $ch = curl_init();
-        $apiKey = config('app.annict_api_key');
         $headers = [
-            'Authorization: Bearer ' . $apiKey,
             'Accept: application/json',
         ];
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -27,7 +25,7 @@ class GeographyController extends Controller
         $responseArray = json_decode($response);
         curl_close($ch);
 
-        // 現在の位置情報と目標の標高が合っているか確認
+        // TODO:現在の位置情報と目標の標高が合っているか確認
         $isClear = false;
 
         return response()->json([
@@ -38,8 +36,5 @@ class GeographyController extends Controller
                 'isClear' => $isClear,
             ]
         ]);
-        // $this->info($response);
-        // return "ww";
-        // return response()->json(['animations' => '111']);
     }
 }
