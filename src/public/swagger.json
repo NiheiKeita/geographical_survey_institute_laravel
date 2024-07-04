@@ -1,0 +1,18 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/conference/create": {
+            "get": {
+                "operationId": "f0479a3c4db7b8f7177214a191f930e3",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Not allowed"
+                    }
+                }
+            }
+        }
+    }
+}
