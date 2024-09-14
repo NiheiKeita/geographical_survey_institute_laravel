@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Animation;
 use Illuminate\Console\Command;
 
 class GetElevation extends Command
@@ -46,5 +45,6 @@ class GetElevation extends Command
         curl_close($ch);
 
         $this->info($response);
+        $this->info($page);
     }
 }
