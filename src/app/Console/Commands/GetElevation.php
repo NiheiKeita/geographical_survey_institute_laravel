@@ -45,5 +45,6 @@ class GetElevation extends Command
         curl_close($ch);
 
         $this->info($response);
+        $this->info($page);
     }
 }

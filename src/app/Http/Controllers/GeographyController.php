@@ -8,7 +8,8 @@ class GeographyController extends Controller
 {
     public function elevation(Request $request)
     {
-        $url = "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon={$request->lon}&lat={$request->lat}&outtype=JSON";
+        $url = "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=
+            {$request->lon}&lat={$request->lat}&outtype=JSON";
         $ch = curl_init();
         $headers = [
             'Accept: application/json',
