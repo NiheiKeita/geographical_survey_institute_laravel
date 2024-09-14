@@ -11,8 +11,7 @@ class RankingController extends Controller
     {
         $question = Question::find($request->id);
         $codes = $question->getMaxCodeBytePerUser();
-        
+
         return response()->json(['codes' => $codes]);
     }
-    
 }

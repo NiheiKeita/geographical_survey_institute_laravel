@@ -14,9 +14,9 @@ class CodeCheck
     {
 
         //TODO(あとでDocker内でlocalhostsにアクセスできるようにする)
-        $data = array(
+        $data = [
             'code' => $code,
-        );
+        ];
         $url = config('app.php_check_url');
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);

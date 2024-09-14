@@ -12,27 +12,28 @@ class UserController extends Controller
         // $user = User::create([
         //     "name" => $request->name,
         // ]);
-        $user = array(
+        $user = [
             "name" => "test",
             "nextCheckpointElevation" => 0,
             "totalPoints" => 0,
-        );
+        ];
         if ($request->id == 1) {
-            $user = array(
+            $user = [
                 "name" => "二瓶啓太",
                 "nextCheckpointElevation" => 150,
                 "totalPoints" => 350,
-            );
+            ];
         }
         return response()->json([
             'result' => 'ok',
             'data' => [
                 "name" => $user["name"],
-                "nextCheckpointElevation" =>  $user["nextCheckpointElevation"],
-                "totalPoints" =>  $user["totalPoints"],
+                "nextCheckpointElevation" => $user["nextCheckpointElevation"],
+                "totalPoints" => $user["totalPoints"],
             ]
         ]);
     }
+
     public function store(Request $request): array
     {
         $user = User::create([
@@ -43,6 +44,7 @@ class UserController extends Controller
             "id" => $user->id,
         ];
     }
+
     public function update(Request $request): array
     {
         $user = User::find($request->user_id);

@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Animation;
 use Illuminate\Console\Command;
 
 class GetElevation extends Command
