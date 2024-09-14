@@ -38,3 +38,4 @@ class GeographyController extends Controller
         ]);
     }
 }
+
